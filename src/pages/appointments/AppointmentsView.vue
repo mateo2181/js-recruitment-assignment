@@ -77,8 +77,8 @@ export default {
             currentMondayDate = format(todayDate, 'yyyyMMdd');
             this.getWeeklySlots(currentMondayDate);
         } else {
-            currentMondayDate = format(previousMonday(new Date()), 'yyyyMMdd');
-            nextMondayDate = format(nextMonday(new Date()), 'yyyyMMdd');
+            currentMondayDate = format(previousMonday(todayDate), 'yyyyMMdd');
+            nextMondayDate = format(nextMonday(todayDate), 'yyyyMMdd');
             this.getWeeklySlots(currentMondayDate);
             this.getWeeklySlots(nextMondayDate);
         }
@@ -125,8 +125,12 @@ export default {
         },
         fetchSlotsNextWeek() {
             const firstDayNextWeek = this.days[this.indexWeek * 7];
-            const nextMondayDate = format(nextMonday(firstDayNextWeek), 'yyyyMMdd');
-            this.getWeeklySlots(nextMondayDate);
+            if(isMonday(firstDayNextWeek)) {
+                this.getWeeklySlots(format(firstDayNextWeek, 'yyyyMMdd'));
+            } else {
+                const nextMondayDate = format(nextMonday(firstDayNextWeek), 'yyyyMMdd');
+                this.getWeeklySlots(nextMondayDate);
+            }
         },
         async confirmNewAppointment() {
             try {
