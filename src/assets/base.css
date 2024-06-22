@@ -8,7 +8,7 @@
   --vt-c-black-soft: #222222;
   --vt-c-black-mute: #282828;
 
-  --vt-c-indigo: #2c3e50;
+  --vt-c-indigo: #253442;
 
   --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
   --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
@@ -32,8 +32,14 @@
 
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
-
+  
   --section-gap: 160px;
+  
+  --blue: rgba(8, 40, 182, 0.945);
+  --blue-bg: rgb(47, 119, 236);
+  --blue-light: rgb(219, 233, 255);
+  --text-light: rgb(65, 65, 65);
+  --text-lightest: rgb(105, 105, 105);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,7 +61,6 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
-  font-weight: normal;
 }
 
 body {
@@ -83,4 +88,12 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reset button */
+button {
+  outline: none;
+  border: none;
+  margin: 0;
+  padding: 0;
 }
