@@ -132,7 +132,10 @@ export default {
             try {
                 console.log(this.appointmentSelected);
                 this.updatingAppointment = true;
-                await api.postBookSlotApi({ start: this.appointmentSelected.start, end: this.appointmentSelected.end });
+                await api.postBookSlotApi({
+                    start: formatDate(this.appointmentSelected.start, 'yyyy-MM-dd HH:mm:ss'),
+                    end: formatDate(this.appointmentSelected.end, 'yyyy-MM-dd HH:mm:ss')
+                });
                 this.updateCurrentAppointment();
             } catch (error) {
                 console.log(error);
