@@ -18,7 +18,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from) => {
-  document.title = to.meta?.title ?? 'App Title'
+  document.title = to.meta?.title as string ?? 'App Title'
 })
 
 export default router;

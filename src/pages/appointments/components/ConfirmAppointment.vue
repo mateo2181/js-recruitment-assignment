@@ -7,8 +7,10 @@
         {{ date }}
     </button>
 </template>
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
     name: 'ConfirmAppointment',
     props: {
         date: {
@@ -21,7 +23,7 @@ export default {
         }
     },
     emits: ['confirmNewAppointment']
-}
+})
 </script>
 <style lang="scss" scoped>
 p {

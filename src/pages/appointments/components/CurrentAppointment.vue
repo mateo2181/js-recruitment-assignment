@@ -8,8 +8,10 @@
         <span :class="{'loading': loading}"> On {{ date }} </span>
     </div>
 </template>
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
     name: 'CurrentAppointment',
     props: {
         date: {
@@ -25,7 +27,7 @@ export default {
             required: true
         }
     }
-}
+})
 </script>
 <style lang="scss" scoped>
 p {

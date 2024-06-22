@@ -6,15 +6,20 @@
 		</div>
 		<div class="slots">
 			<div v-for="(slot, index) in slots" :key="index">
-				<button :class="{selected: appointmentSelected && appointmentSelected.start === slot.start}" @click="selectDate(slot)" v-if="!slot.taken"> {{ getDateSlot(slot.start) }} </button>
+				<button :class="{ selected: appointmentSelected && appointmentSelected.start === slot.start }"
+					@click="selectDate(slot)" v-if="!slot.taken"> {{ getDateSlot(slot.start) }} </button>
 				<span v-else> {{ getDateSlot(slot.start) }} </span>
 			</div>
 		</div>
 	</div>
 </template>
-<script>
+<script lang="ts">
 import { format, isToday, isTomorrow } from "date-fns";
-export default {
+import { defineComponent } from 'vue';
+import type { PropType } from 'vue';
+import { type ISlot } from '@/types';
+
+export default defineComponent({
 	name: 'SlotsByDay',
 	props: {
 		day: {
@@ -22,11 +27,11 @@ export default {
 			required: true
 		},
 		slots: {
-			type: Array,
+			type: Array as PropType<ISlot[]>,
 			default: () => []
 		},
 		appointmentSelected: {
-			type: Object,
+			type: Object as PropType<ISlot>,
 			default: null
 		}
 	},
@@ -45,17 +50,17 @@ export default {
 		}
 	},
 	methods: {
-		getDateSlot(date) {
+		getDateSlot(date: string) {
 			return format(date, 'HH:mm');
 		},
-		selectDate(slot) {
+		selectDate(slot: ISlot) {
 			this.$emit('selectDate', {
 				start: slot.start,
 				end: slot.end
 			})
 		}
 	}
-}
+})
 </script>
 <style lang="scss" scoped>
 .container {
@@ -63,13 +68,16 @@ export default {
 	flex-direction: column;
 	gap: 12px;
 	min-width: 36px;
+
 	.day {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+
 		.weekDay {
 			font-weight: 500;
 		}
+
 		.shortDay {
 			font-size: 12px;
 			color: var(--text-lightest);
@@ -89,6 +97,7 @@ export default {
 			width: 100%;
 			cursor: pointer;
 			border-radius: 4px;
+
 			&.selected {
 				background-color: var(--blue-bg);
 				color: var(--vt-c-white);
