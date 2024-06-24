@@ -3,8 +3,8 @@
         Confirm your appointment with <strong>{{ doctor }}</strong>
     </p>
     <div class="card appointment">
-        <v-icon v-if="!loading" :scale="1.3" name="bi-calendar-week-fill" />
-        <v-icon v-else :scale="1.3" name="ri-loader-3-fill" animation="spin"/>
+        <v-icon data-test-id="calendar-icon" v-if="!loading" :scale="1.3" name="bi-calendar-week-fill" />
+        <v-icon data-test-id="loader-icon" v-else :scale="1.3" name="ri-loader-3-fill" animation="spin"/>
         <span :class="{'loading': loading}"> On {{ date }} </span>
     </div>
 </template>
