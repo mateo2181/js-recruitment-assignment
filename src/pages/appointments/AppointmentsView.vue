@@ -89,7 +89,6 @@ export default {
             try {
                 this.loading = true;
                 const data = await api.getWeeklySlotsApi(dateInput);
-                console.log({ data });
                 this.slots = [...this.slots, ...data];
 
             } catch (error) {
@@ -134,7 +133,6 @@ export default {
         },
         async confirmNewAppointment() {
             try {
-                console.log(this.appointmentSelected);
                 this.updatingAppointment = true;
                 await api.postBookSlotApi({
                     start: formatDate(this.appointmentSelected.start, 'yyyy-MM-dd HH:mm:ss'),

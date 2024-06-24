@@ -80,8 +80,19 @@ yarn install && yarn serve
 
 ![](./assets/video.gif)
 
+# Annotations
+
+## Tests
+
+```
+yarn test:unit ## Unit tests
+yarn coverage ## Unit tests with coverage report
+```
+
 ## Improvements
 - Add Storybook to document components. Ex: CustomCollapse.vue.
 - As the app grows, it will be recommended to use a state management library like Pinia, so components can access to shared state.
   Ex: available slots can be needed in different views and store them in a shared state will solve issues like props drilling. 
 - Add transitions.
+- Add integration and E2E tests.
+- From a feature perspective, the appointments page is not completed since when an appointment is updated to a new time slot, the old one should be available again. As I understand the API should be the one doing this. 
