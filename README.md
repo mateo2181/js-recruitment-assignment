@@ -79,3 +79,9 @@ yarn install && yarn serve
 ## Preview
 
 ![](./assets/video.gif)
+
+## Improvements
+- Add Storybook to document components. Ex: CustomCollapse.vue.
+- As the app grows, it will be recommended to use a state management library like Pinia, so components can access to shared state.
+  Ex: available slots can be needed in different views and store them in a shared state will solve issues like props drilling. 
+- Add transitions.
