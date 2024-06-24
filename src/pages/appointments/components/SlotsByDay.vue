@@ -67,7 +67,7 @@ export default defineComponent({
 	display: flex;
 	flex-direction: column;
 	gap: 12px;
-	min-width: 36px;
+	min-width: 50px;
 
 	.day {
 		display: flex;
